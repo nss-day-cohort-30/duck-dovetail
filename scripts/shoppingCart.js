@@ -1,21 +1,91 @@
+let itemToAdd = {};
 const shoppingCart = []
+
+const compareCarts = () => {
+
+    if (shoppingCart.length === 0) {
+        itemToAdd.quantity = 1
+        shoppingCart.push(itemToAdd)
+    } else {
+        const matchFound = shoppingCart.find(item => itemToAdd.id === item.id)
+        if (matchFound) {
+            matchFound.quantity++
+        } else {
+            itemToAdd.quantity = 1
+            shoppingCart.push(itemToAdd)
+        }
+    }
+}
+
+
+
+//     shoppingCart.forEach(cartItem => {
+
+//         const matchFound = thingsToDisplay.find(function (displayItem) {
+//             return cartItem === displayItem;
+//         });
+//         if (matchFound === true) {
+//             displayItem.quantity += 1
+//             console.log(matchFound)
+//         } else {
+//             cartItem.quantity = 1
+//             thingsToDisplay.push(cartItem)
+//             console.log(matchFound)
+//         }
+//         shoppingCart.splice(0, 1)
+// console.log(matchFound)
+//     });
+
+// shoppingCart.forEach(cartItem => {
+//     if (thingsToDisplay.length === 0) {
+//         cartItem.quantity = 1
+//         thingsToDisplay.push(cartItem);
+//     } else {
+//         thingsToDisplay.forEach(displayItem => {
+//             if (cartItem.id === displayItem.id) {
+//                 displayItem.quantity += 1
+//             } else {
+//                 cartItem.quantity = 1
+//                 thingsToDisplay.push(cartItem)
+//             }
+//         });
+//     }
+// })
+
+
+
+// const compareCarts = () => {
+//     shoppingCart.forEach(cartItem => {
+//         thingsToDisplay.forEach(displayItem => {
+//             if (displayItem === null) {
+//                 cartItem.quantity = 1
+//                 thingsToDisplay.push(cartItem)
+//             } else if (cartItem.id === displayItem.id) {
+//                 displayItem.quantity += 1
+//             } else {
+//                 cartItem.quantity = 1
+//                 thingsToDisplay.push(cartItem)
+//             }
+//         });
+//     });
+// }
 
 const displayShoppingCart = () => {
     const cartEl = document.querySelector("#cartItems")
     cartEl.innerHTML = ""
 
     let grandTotal = 0
-
     shoppingCart.forEach((product, idx) => {
 
         cartEl.innerHTML +=
-        `
+            `
         <section class="shoppingCart__item">
         <div>${product.name}</div>
+        <div> qty. ${product.quantity}</div>
         <div>${product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD"
-        })}</div>
+                style: "currency",
+                currency: "USD"
+            })}</div>
 
         <button id="${idx}" class="cart_removeButton">Remove</button>
         </section>
