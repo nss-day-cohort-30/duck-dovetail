@@ -56,8 +56,7 @@ for (button of allButtons) {
             // shopping cart array
             if (foundProduct !== null) {
                 shoppingCart.push(foundProduct)
-                window.alert("You added this product to your shopping cart")
-                console.table(shoppingCart)
+                displayShoppingCart()
             }
 
         }

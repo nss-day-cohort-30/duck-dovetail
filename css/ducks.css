@@ -23,3 +23,19 @@ body {
     font-size: 1.25em;
 }
 
+.shoppingCart__header {
+    font-size: 3em;
+}
+
+#cartItems {
+    display: flex;
+    flex-direction: column;
+}
+
+.shoppingCart__item {
+    display: flex;
+    flex-direction: row;
+    font-size: 1.75em;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
+}
