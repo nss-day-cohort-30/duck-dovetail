@@ -56,7 +56,7 @@ for (button of allButtons) {
             // shopping cart array
             if (foundProduct !== null) {
                 itemToAdd = foundProduct
-                compareCarts()
+                compareQuantity()
                 displayShoppingCart()
             }
 

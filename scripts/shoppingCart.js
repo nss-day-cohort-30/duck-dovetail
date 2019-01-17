@@ -1,12 +1,8 @@
 let itemToAdd = {};
 const shoppingCart = []
 
-const compareCarts = () => {
+const compareQuantity = () => {
 
-    if (shoppingCart.length === 0) {
-        itemToAdd.quantity = 1
-        shoppingCart.push(itemToAdd)
-    } else {
         const matchFound = shoppingCart.find(item => itemToAdd.id === item.id)
         if (matchFound) {
             matchFound.quantity++
@@ -15,7 +11,7 @@ const compareCarts = () => {
             shoppingCart.push(itemToAdd)
         }
     }
-}
+
 
 
 
@@ -75,6 +71,7 @@ const displayShoppingCart = () => {
     cartEl.innerHTML = ""
 
     let grandTotal = 0
+
     shoppingCart.forEach((product, idx) => {
 
         cartEl.innerHTML +=
@@ -82,7 +79,7 @@ const displayShoppingCart = () => {
         <section class="shoppingCart__item">
         <div>${product.name}</div>
         <div> qty. ${product.quantity}</div>
-        <div>${product.price.toLocaleString("en-US", {
+        <div>${(product.price * product.quantity).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD"
             })}</div>
@@ -91,7 +88,7 @@ const displayShoppingCart = () => {
         </section>
         `
 
-        grandTotal += product.price
+        grandTotal += (product.price * product.quantity)
     })
 
     cartEl.innerHTML += `
