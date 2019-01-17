@@ -46,10 +46,14 @@ for (button of allButtons) {
     button.addEventListener(
         "click",
         (event) => {
+            // Find the product whose `id` property is equal to
+            // the "id" attribute of the button that was clicked on
             const foundProduct = products.find((product) => {
                 return parseInt(event.target.id) === product.id
             })
 
+            // Only if something was found, add the object to the
+            // shopping cart array
             if (foundProduct !== null) {
                 shoppingCart.push(foundProduct)
                 window.alert("You added this product to your shopping cart")
