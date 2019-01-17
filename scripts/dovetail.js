@@ -1,3 +1,7 @@
+/*
+    Function to convert a JavaScript object representation
+    of a product to an HTML representation
+*/
 const createProductHTML = product => `
     <section class="product">
       <header class="product__header">
@@ -22,22 +26,33 @@ const createProductHTML = product => `
 
 
 
-
+// Iterate all products
 for (product of products) {
+    // Create HTML representation
     const theProductHTML = createProductHTML(product)
 
+    // Reference to container
     const containerEl = document.querySelector("#productList")
 
+    // Update HTML of container
     containerEl.innerHTML += theProductHTML
 }
 
+// Get a reference to all purchase buttons
+const allButtons = document.querySelectorAll(".product__purchaseButton")
 
-document.querySelectorAll(".product__purchaseButton").addEventListener(
-    "click",
-    () => {
-        window.alert("You added this product to your shopping cart")
-    }
-)
+// Add a click event listener to each button
+for (button of allButtons) {
+    button.addEventListener(
+        "click",
+        () => {
+            window.alert("You added this product to your shopping cart")
+        }
+    )
+
+}
+
+
 
 
 
