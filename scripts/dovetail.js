@@ -18,7 +18,7 @@ const createProductHTML = product => `
             currency: "USD"
         })}
 
-        <button class="product__purchaseButton">Purchase</button>
+        <button id="${product.id}" class="product__purchaseButton">Purchase</button>
       </footer>
 
     </section>
@@ -45,8 +45,17 @@ const allButtons = document.querySelectorAll(".product__purchaseButton")
 for (button of allButtons) {
     button.addEventListener(
         "click",
-        () => {
-            window.alert("You added this product to your shopping cart")
+        (event) => {
+            const foundProduct = products.find((product) => {
+                return parseInt(event.target.id) === product.id
+            })
+
+            if (foundProduct !== null) {
+                shoppingCart.push(foundProduct)
+                window.alert("You added this product to your shopping cart")
+                console.table(shoppingCart)
+            }
+
         }
     )
 
