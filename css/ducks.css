@@ -6,13 +6,16 @@ body {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
+    justify-content: space-between;
+    padding: 0 20px;
 }
 
 
 .product {
-    flex-basis: 31%;
+    flex-basis: 25%;
     border: 2px dotted goldenrod;
     padding: 15px;
+    margin: 0 0 20px 0;
 }
 
 .product__header {
@@ -32,10 +35,22 @@ body {
     flex-direction: column;
 }
 
-.shoppingCart__item {
+.lineItem {
     display: flex;
     flex-direction: row;
     font-size: 1.75em;
     justify-content: space-between;
     border-bottom: 1px solid gray;
+}
+
+.lineItem__column {
+    flex-basis: 28%;
+}
+
+.cart__buttons {
+    flex-basis: 15%;
+}
+
+.button--cart {
+    font-size: 0.7em;
 }

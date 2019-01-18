@@ -4,23 +4,22 @@
 */
 const createProductHTML = product => `
     <section class="product">
-      <header class="product__header">
-        <h2>${product.name}</h2>
-      </header>
+        <header class="product__header">
+            <h2>${product.name}</h2>
+        </header>
 
-      <p class="product__description">
+        <p class="product__description">
         ${product.description}
-      </p>
+        </p>
 
-      <footer class="product__footer">
-        Price: ${product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD"
-        })}
+        <footer class="product__footer">
+            Price: ${product.price.toLocaleString("en-US", {
+                style: "currency",
+                currency: "USD"
+            })}
 
-        <button id="${product.id}" class="product__purchaseButton">Purchase</button>
-      </footer>
-
+            <button id="${product.id}" class="product__purchaseButton">Purchase</button>
+        </footer>
     </section>
 `
 
@@ -48,20 +47,19 @@ for (button of allButtons) {
         (event) => {
             // Find the product whose `id` property is equal to
             // the "id" attribute of the button that was clicked on
-            const foundProduct = products.find((product) => {
-                return parseInt(event.target.id) === product.id
-            })
+            const product = products.find(p => parseInt(event.target.id) === p.id)
 
             // Only if something was found, add the object to the
             // shopping cart array
-            if (foundProduct !== null) {
-                shoppingCart.push(foundProduct)
-                displayShoppingCart()
+            const itemInCart = isProductInCart(product.id)
+            if (!itemInCart) {
+                shoppingCart.push(Object.assign({quantity: 1}, product))
+            } else {
+                itemInCart.quantity++
             }
-
+            displayShoppingCart()
         }
     )
-
 }
 
 

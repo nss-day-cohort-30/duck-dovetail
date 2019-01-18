@@ -1,29 +1,46 @@
 const shoppingCart = []
 
+const isProductInCart = id => shoppingCart.find(p => p.id === id)
+
+/*
+    Display all items in the shopping cart array
+*/
 const displayShoppingCart = () => {
+    // Get reference to container HTML element
     const cartEl = document.querySelector("#cartItems")
+
+    // CLear out element
     cartEl.innerHTML = ""
 
+    // Declare variable to store grand total of all prices
     let grandTotal = 0
 
+    // Iterate shopping cart array
     shoppingCart.forEach((product, idx) => {
 
+        // Add HTML representation of product object to DOM
         cartEl.innerHTML +=
         `
-        <section class="shoppingCart__item">
-        <div>${product.name}</div>
-        <div>${product.price.toLocaleString("en-US", {
-            style: "currency",
-            currency: "USD"
-        })}</div>
+        <section class="lineItem">
+            <div class="lineItem__column lineItem__name">${product.name}</div>
+            <div class="lineItem__column">
+                ${(product.quantity * product.price).toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD"
+                })}
+            </div>
 
-        <button id="${idx}" class="cart_removeButton">Remove</button>
+            <div class="cart__buttons">
+                <button id="removeAll--${idx}" class="button--cart lineItem__column">-</button>
+                <button id="removeAll--${idx}" class="button--cart lineItem__column">Remove</button>
+            </div>
         </section>
         `
 
-        grandTotal += product.price
+        grandTotal += (product.quantity * product.price)
     })
 
+    // Add h3 element with total price of all products in cart
     cartEl.innerHTML += `
       <h3>You owe us: ${grandTotal.toLocaleString("en-US", {
         style: "currency",
