@@ -3,7 +3,7 @@ body {
 }
 
 .company {
-    font-size: 4em;
+    font-size: 3.25em;
 }
 
 .center {
@@ -68,7 +68,7 @@ body {
 }
 
 .shoppingCart__header {
-    font-size: 3em;
+    font-size: 2em;
 }
 
 #cartItems {
@@ -76,15 +76,19 @@ body {
     flex-direction: column;
 }
 
-.lineItem {
+.lineItem, .cartHeaders {
     display: flex;
     flex-direction: row;
-    font-size: 1.75em;
+    font-size: 1.5em;
     justify-content: space-between;
     border-bottom: 1px solid gray;
 }
 
-.lineItem__column {
+.cartHeaders {
+    font-size: 2em;
+}
+
+.lineItem__column, .cartHeaders__column {
     flex-basis: 28%;
 }
 

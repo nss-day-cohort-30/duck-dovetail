@@ -10,7 +10,15 @@ const displayShoppingCart = () => {
     const cartEl = document.querySelector("#cartItems")
 
     // CLear out element
-    cartEl.innerHTML = ""
+    cartEl.innerHTML = `
+    <section class="cartHeaders">
+        <div class="cartHeaders__column">Product</div>
+        <div class="cartHeaders__column">Quantity</div>
+        <div class="cartHeaders__column">Price</div>
+
+        <div class="cart__buttons"> </div>
+    </section>
+    `
 
     // Declare variable to store grand total of all prices
     let grandTotal = 0
@@ -23,6 +31,7 @@ const displayShoppingCart = () => {
         `
         <section class="lineItem">
             <div class="lineItem__column lineItem__name">${product.name}</div>
+            <div class="lineItem__column lineItem__quantity">${product.quantity}</div>
             <div class="lineItem__column">
                 ${(product.quantity * product.price).toLocaleString("en-US", {
                     style: "currency",
