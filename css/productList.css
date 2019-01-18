@@ -1,0 +1,55 @@
+@import "animations.css";
+
+#productList {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+    padding: 0 20px;
+    flex-basis: 60%
+}
+
+.product {
+    flex-basis: 40%;
+    border: 2px dotted goldenrod;
+    padding: 15px;
+    margin: 0 0 10px 0;
+}
+
+.product:hover {
+    cursor: pointer;
+    animation: jiggle 0.25s;
+    transition: .5s all ease;
+    z-index: 400;
+    box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4)
+}
+
+.product__header {
+    text-align: center;
+}
+
+.product__image {
+    width: 100px;
+    height: 100px;
+    opacity: 1;
+}
+
+.product:hover .product__image {
+    opacity: 0;
+    transition: 0.4s all ease;
+}
+
+.product__description {
+    opacity: 0;
+    font-size: 1.25em;
+}
+
+.product:hover > .product__description {
+    display: block;
+    opacity: 1;
+    transition: 1.5s all ease;
+}
+
+.product__price {
+    margin: 0 0 10px 0;
+}

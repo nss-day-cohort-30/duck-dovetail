@@ -13,7 +13,7 @@ const displayShoppingCart = () => {
     cartEl.innerHTML = `
     <section class="cartHeaders">
         <div class="cartHeaders__column">Product</div>
-        <div class="cartHeaders__column">Quantity</div>
+        <div class="cartHeaders__column">Qty</div>
         <div class="cartHeaders__column">Price</div>
 
         <div class="cart__buttons"> </div>
@@ -32,7 +32,7 @@ const displayShoppingCart = () => {
         <section class="lineItem">
             <div class="lineItem__column lineItem__name">${product.name}</div>
             <div class="lineItem__column lineItem__quantity">${product.quantity}</div>
-            <div class="lineItem__column">
+            <div class="lineItem__column lineItem__price ">
                 ${(product.quantity * product.price).toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD"
