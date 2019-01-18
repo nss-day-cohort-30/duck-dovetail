@@ -12,6 +12,10 @@ const createProductHTML = product => `
         ${product.description}
         </p>
 
+        <p class="container--product__image center">
+            <img class="product__image" src="./images/${product.image}" />
+        </p>
+
         <footer class="product__footer">
             <div class="product__price">
                 Price: ${product.price.toLocaleString("en-US", {
