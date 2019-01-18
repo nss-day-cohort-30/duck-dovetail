@@ -12,9 +12,9 @@ const displayShoppingCart = () => {
     // CLear out element
     cartEl.innerHTML = `
     <section class="cartHeaders">
-        <div class="cartHeaders__column">Product</div>
-        <div class="cartHeaders__column">Qty</div>
-        <div class="cartHeaders__column">Price</div>
+        <div class="cartHeaders__column header--product">Product</div>
+        <div class="cartHeaders__column header--quantity">Qty</div>
+        <div class="cartHeaders__column header--price">Price</div>
 
         <div class="cart__buttons"> </div>
     </section>
@@ -30,9 +30,9 @@ const displayShoppingCart = () => {
         cartEl.innerHTML +=
         `
         <section class="lineItem">
-            <div class="lineItem__column lineItem__name">${product.name}</div>
-            <div class="lineItem__column lineItem__quantity">${product.quantity}</div>
-            <div class="lineItem__column lineItem__price ">
+            <div class="lineItem__column lineItem--name">${product.name}</div>
+            <div class="lineItem__column lineItem--quantity">${product.quantity}</div>
+            <div class="lineItem__column lineItem--price ">
                 ${(product.quantity * product.price).toLocaleString("en-US", {
                     style: "currency",
                     currency: "USD"

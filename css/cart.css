@@ -28,15 +28,28 @@
     flex-basis: 28%;
 }
 
-.lineItem__name {
+.header--product {
     flex-basis: 40%;
 }
 
-.lineItem__quantity {
+.header--quantity {
     flex-basis: 20%;
 }
 
-.lineItem__price {
+.header--price {
+    flex-basis: 30%;
+}
+
+
+.lineItem--name {
+    flex-basis: 40%;
+}
+
+.lineItem--quantity {
+    flex-basis: 20%;
+}
+
+.lineItem--price {
     flex-basis: 30%;
 }
 
