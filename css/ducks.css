@@ -2,13 +2,12 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.center {
-    text-align: center;
+.company {
+    font-size: 4em;
 }
 
-.product__description {
-    /* display:none; */
-    opacity: 0;
+.center {
+    text-align: center;
 }
 
 #productList {
@@ -50,6 +49,7 @@ body {
 }
 
 .product__description {
+    opacity: 0;
     font-size: 1.25em;
 }
 
@@ -61,6 +61,10 @@ body {
 
 .product__price {
     margin: 0 0 10px 0;
+}
+
+#shoppingCart {
+    margin-bottom: 500px;
 }
 
 .shoppingCart__header {
