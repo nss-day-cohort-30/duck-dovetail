@@ -1,3 +1,9 @@
+:root {
+    --name-column-width: 40%;
+    --quantity-column-width: 20%;
+    --price-column-width: 30%;
+}
+
 #shoppingCart {
     margin-bottom: 500px;
     flex-basis: 40%
@@ -29,28 +35,28 @@
 }
 
 .header--product {
-    flex-basis: 40%;
+    flex-basis: var(--name-column-width);
 }
 
 .header--quantity {
-    flex-basis: 20%;
+    flex-basis: var(--quantity-column-width);
 }
 
 .header--price {
-    flex-basis: 30%;
+    flex-basis: var(--price-column-width);
 }
 
 
 .lineItem--name {
-    flex-basis: 40%;
+    flex-basis: var(--name-column-width);
 }
 
 .lineItem--quantity {
-    flex-basis: 20%;
+    flex-basis: var(--quantity-column-width);
 }
 
 .lineItem--price {
-    flex-basis: 30%;
+    flex-basis: var(--price-column-width);
 }
 
 .cart__buttons {
