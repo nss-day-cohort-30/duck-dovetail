@@ -25,9 +25,25 @@ body {
     margin: 0 0 20px 0;
 }
 
+@keyframes jiggle {
+    0% { transform: rotate(0deg) scale(1); opacity: 1; }
+    33% { transform: rotate(2deg) scale(1.0); opacity: 0.75; }
+    66% { transform: rotate(-2deg) scale(1.0); opacity: 0.5; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes earthquake {
+    0% { transform: rotate(0deg) scale(1.1); opacity: 1; }
+    18% { transform: rotate(0deg) scale(1.0); opacity: 0.75; }
+    36% { transform: rotate(-0deg) scale(1.1); opacity: 0.5; }
+    54% { transform: rotate(0deg) scale(1.0); opacity: 0.75; }
+    72% { transform: rotate(-0deg) scale(1.1); opacity: 0.5; }
+    100% { transform: rotate(0deg) scale(1.0); opacity: 1; }
+}
+
 .product:hover {
     cursor: pointer;
-    transform: rotate(0deg) scale(1);
+    animation: jiggle 0.25s;
     transition: .5s all ease;
     z-index: 400;
     box-shadow: 5px 15px 20px rgba(72, 62, 23, 0.4)
@@ -104,3 +120,4 @@ body {
 .button--cart {
     font-size: 0.7em;
 }
+
