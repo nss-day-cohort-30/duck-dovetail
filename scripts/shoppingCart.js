@@ -31,7 +31,7 @@ const displayShoppingCart = () => {
             </div>
 
             <div class="cart__buttons">
-                <button id="removeAll--${idx}" class="button--cart lineItem__column">-</button>
+                <button id="removeOne--${idx}" class="button--cart lineItem__column">-</button>
                 <button id="removeAll--${idx}" class="button--cart lineItem__column">Remove</button>
             </div>
         </section>
@@ -49,15 +49,35 @@ const displayShoppingCart = () => {
     `
 
     // Get a reference to all purchase buttons
-    const allRemoveButtons = document.querySelectorAll(".cart_removeButton")
+    const allRemoveButtons = document.querySelectorAll("button[id^='removeAll']")
+    const oneRemoveButtons = document.querySelectorAll("button[id^='removeOne']")
+
+    const deleteFromCart = idx => shoppingCart.splice(idx, 1)
+
+    // Add a click event listener to each button
+    for (const button of oneRemoveButtons) {
+        button.addEventListener(
+            "click",
+            (event) => {
+                const indexToRemove = parseInt(event.target.id.split("--")[1])
+                const product = shoppingCart[indexToRemove]
+                if (product.quantity > 1) {
+                    product.quantity--
+                } else {
+                    deleteFromCart(indexToRemove)
+                }
+                displayShoppingCart()
+            }
+        )
+    }
 
     // Add a click event listener to each button
     for (const button of allRemoveButtons) {
         button.addEventListener(
             "click",
             (event) => {
-                const indexToRemove = parseInt(event.target.id)
-                shoppingCart.splice(indexToRemove, 1)
+                const indexToRemove = parseInt(event.target.id.split("--")[1])
+                deleteFromCart(indexToRemove)
                 displayShoppingCart()
             }
         )
