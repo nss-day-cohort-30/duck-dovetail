@@ -13,12 +13,14 @@ const createProductHTML = product => `
         </p>
 
         <footer class="product__footer">
-            Price: ${product.price.toLocaleString("en-US", {
-                style: "currency",
-                currency: "USD"
-            })}
+            <div class="product__price">
+                Price: ${product.price.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "USD"
+                })}
+            </div>
 
-            <button id="${product.id}" class="product__purchaseButton">Purchase</button>
+            <button id="${product.id}" class="button button--purchase">Purchase</button>
         </footer>
     </section>
 `
@@ -38,7 +40,7 @@ for (product of products) {
 }
 
 // Get a reference to all purchase buttons
-const allButtons = document.querySelectorAll(".product__purchaseButton")
+const allButtons = document.querySelectorAll(".button--purchase")
 
 // Add a click event listener to each button
 for (button of allButtons) {
